@@ -3354,12 +3354,12 @@ EXTERN_C_BEGIN
 # define DBG_HDRS_ALL 1
 #endif
 
-#if defined(POINTER_MASK) && !defined(POINTER_SHIFT)
-# define POINTER_SHIFT 0
+#if !defined(POINTER_MASK)
+# define POINTER_MASK 0x7FFFFFFFFFFFFFF
 #endif
 
-#if defined(POINTER_SHIFT) && !defined(POINTER_MASK)
-# define POINTER_MASK ((word)(signed_word)(-1))
+#if defined(POINTER_MASK) && !defined(POINTER_SHIFT)
+# define POINTER_SHIFT 0
 #endif
 
 #if !defined(FIXUP_POINTER) && defined(POINTER_MASK)
